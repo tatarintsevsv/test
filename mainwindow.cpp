@@ -7,9 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     gb=new GameBoard(this);
- this->centralWidget()->setMouseTracking(true);
-
-
+    this->setMouseTracking(true);
 
 }
 
@@ -20,7 +18,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    gb->gameBoard->resize(this->width(),this->height());
+    gb->resizeMe(this->width(),this->height());
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    qDebug()<<event->x()<<event->y();
+    gb->mouseMove(event->x(),event->y());
 }
 
 

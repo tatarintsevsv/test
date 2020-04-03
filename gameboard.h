@@ -1,6 +1,6 @@
 #ifndef GAMEBOARD_H
 #define GAMEBOARD_H
-
+#include <QtCore>
 #include<QGraphicsView>
 #include <QVBoxLayout>
 #include <QMouseEvent>
@@ -8,15 +8,16 @@
 class MainWindow;
 class GameBoard : public QGraphicsView
 {
-friend class MainWindow;
+//friend class MainWindow;
 public:
     GameBoard(QWidget *parent);
+    void resizeMe(int w,int h){gameBoard->resize(w,h); }
+    void mouseMove(int x, int y);
 private:
  QVBoxLayout* mainLayout;
  QGraphicsView* gameBoard;
  QGraphicsScene* scene;
-protected:
-   void mouseMoveEvent(QMouseEvent *event);
+
 };
 
 #endif // GAMEBOARD_H

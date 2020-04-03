@@ -20,6 +20,9 @@ private:
 
     GameBoard* gb;
 protected:
-    void resizeEvent(QResizeEvent *event);
+   void resizeEvent(QResizeEvent *event);
+   void mouseMoveEvent(QMouseEvent *event);
+signals:
+   void mouseMove(int x, int y);
 };
 #endif // MAINWINDOW_H
